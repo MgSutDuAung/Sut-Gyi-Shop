@@ -1,35 +1,119 @@
-/* Table Styles */
-.price-table-container {
-    overflow-x: auto;
-    margin-top: 20px;
-    padding: 0 10px;
+:root {
+    --primary: #38bdf8;
+    --dark: #020617;
+    --glass: rgba(30, 41, 59, 0.7);
+    --mlbb-color: #f59e0b; /* MLBB theme color */
+    --pubg-color: #10b981; /* PUBG theme color */
 }
-.price-table {
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto;
-    border-collapse: collapse;
-    background: #1e293b;
-    border-radius: 10px;
-    overflow: hidden;
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+
+body { background-color: var(--dark); color: #f8fafc; overflow-x: hidden; }
+
+.bg-gradient {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at top right, #1e3a8a, transparent),
+                radial-gradient(circle at bottom left, #0f172a, #020617);
+    z-index: -1;
 }
-.price-table th, .price-table td {
-    padding: 15px;
-    text-align: left;
-    border-bottom: 1px solid #334155;
+
+header {
+    background: var(--glass); backdrop-filter: blur(10px);
+    padding: 15px 8%; position: fixed; width: 100%; top: 0; z-index: 1000;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
 }
-.price-table th {
-    background-color: #38bdf8;
-    color: #0f172a;
+
+nav { display: flex; justify-content: space-between; align-items: center; }
+.logo { font-size: 22px; font-weight: 800; letter-spacing: 1px; }
+.logo span { color: var(--primary); }
+.nav-icons i { font-size: 24px; margin-left: 20px; color: var(--primary); }
+
+.hero { height: 45vh; display: flex; align-items: center; justify-content: center; padding-top: 80px; }
+.hero-card { 
+    text-align: center; background: var(--glass); padding: 30px; 
+    border-radius: 20px; border: 1px solid rgba(56, 189, 248, 0.3);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
-.price-table tr:hover {
-    background-color: #334155;
+.text-neon { color: var(--primary); text-shadow: 0 0 10px var(--primary); }
+.status-badge { 
+    display: inline-block; margin-top: 15px; padding: 5px 15px; 
+    background: rgba(34, 197, 94, 0.2); color: #4ade80; 
+    border-radius: 20px; font-size: 12px; font-weight: bold;
 }
-.btn-sm {
-    padding: 5px 15px;
-    background: #38bdf8;
-    color: white;
-    text-decoration: none;
-    border-radius: 4px;
-    font-size: 13px;
+
+.content-section { padding: 40px 8%; }
+.section-title { margin-bottom: 25px; font-size: 22px; border-left: 4px solid var(--primary); padding-left: 15px; }
+
+.table-wrapper { overflow-x: auto; background: var(--glass); border-radius: 15px; border: 1px solid rgba(255,255,255,0.05); }
+.modern-table { width: 100%; border-collapse: collapse; min-width: 500px; }
+.modern-table th { background: rgba(56, 189, 248, 0.1); padding: 15px; text-align: left; color: var(--primary); }
+.modern-table td { padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.price { font-weight: bold; color: #4ade80; }
+
+.buy-btn { 
+    background: var(--primary); color: var(--dark); padding: 6px 15px; 
+    text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 13px;
+    transition: 0.3s; display: inline-block;
+}
+.buy-btn:hover { transform: scale(1.05); box-shadow: 0 0 15px var(--primary); }
+
+.payment-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+.pay-card { 
+    background: var(--glass); padding: 25px; border-radius: 20px; text-align: center;
+    border: 1px solid rgba(255,255,255,0.05);
+}
+.qr-code { width: 160px; height: 160px; border-radius: 12px; margin-bottom: 15px; border: 4px solid white; }
+.pay-name { display: block; margin-top: 5px; color: var(--primary); font-size: 14px; }
+
+footer { text-align: center; padding: 40px; color: #64748b; font-size: 13px; }
+
+/* Background Images for Gaming Sections (Adjust opacity as needed) */
+.mlbb-bg {
+    background-image: url('mlbb_diamond.png'); /* Replace with actual MLBB diamond image */
+    background-size: cover; background-position: center; background-repeat: no-repeat;
+    background-color: var(--glass); /* Keep glass effect */
+    background-blend-mode: overlay; /* Blend glass and image */
+    border: 1px solid rgba(245, 158, 11, 0.3); /* MLBB gold border */
+}
+.pubg-bg {
+    background-image: url('pubg_uc.png'); /* Replace with actual PUBG UC image */
+    background-size: cover; background-position: center; background-repeat: no-repeat;
+    background-color: var(--glass);
+    background-blend-mode: overlay;
+    border: 1px solid rgba(16, 185, 129, 0.3); /* PUBG green border */
+}
+
+/* --- Animation Styles --- */
+
+/* Keyframes */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Animation Classes */
+.animate-fadeInUp {
+    opacity: 0; /* hidden initially */
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+.animate-fadeInDown {
+    opacity: 0; /* hidden initially */
+    animation: fadeInDown 0.8s ease-out forwards;
+}
+
+/* Delays to create a cascading effect */
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+.delay-4 { animation-delay: 0.8s; }
+.delay-5 { animation-delay: 1.0s; }
+
+
+@media (max-width: 600px) {
+    .hero h1 { font-size: 2rem; }
+    .content-section { padding: 30px 5%; }
 }
