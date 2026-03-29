@@ -1,6 +1,6 @@
 * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
 
-/* အဖြူနဲ့ အပြာနု နောက်ခံအရောင်စပ် */
+/* အပြာနုနဲ့ အဖြူရောင်စပ် Background */
 body { background: #f0f9ff; overflow-x: hidden; color: #1e293b; }
 .bg-gradient { 
     position: fixed; top: 0; width: 100%; height: 100%; 
@@ -8,61 +8,76 @@ body { background: #f0f9ff; overflow-x: hidden; color: #1e293b; }
     z-index: -1; 
 }
 
-/* Glass Effect */
+/* Glassmorphism Effect */
 .glass { 
     background: rgba(255, 255, 255, 0.7); 
-    backdrop-filter: blur(10px); 
-    border: 1px solid rgba(255, 255, 255, 0.5); 
+    backdrop-filter: blur(12px); 
     border-radius: 20px; 
-    box-shadow: 0 8px 32px rgba(14, 165, 233, 0.1); 
+    border: 1px solid rgba(255, 255, 255, 0.5); 
+    box-shadow: 0 10px 30px rgba(14, 165, 233, 0.1); 
 }
 
+/* Header */
 header { padding: 15px 5%; position: sticky; top: 0; z-index: 1000; }
 nav { display: flex; justify-content: space-between; align-items: center; }
 .logo { font-weight: 800; font-size: 1.5rem; color: #0369a1; }
 .logo span { color: #38bdf8; }
 
-.btn-v { background: #7360f2; color: white !important; padding: 7px 15px; border-radius: 20px; text-decoration: none; font-size: 0.8rem; }
-.btn-t { background: #229ED9; color: white !important; padding: 7px 15px; border-radius: 20px; text-decoration: none; font-size: 0.8rem; }
+.btn-v { background: #7360f2; color: white !important; padding: 8px 18px; border-radius: 25px; text-decoration: none; font-size: 0.8rem; font-weight: bold; transition: 0.3s; }
+.btn-t { background: #229ED9; color: white !important; padding: 8px 18px; border-radius: 25px; text-decoration: none; font-size: 0.8rem; font-weight: bold; transition: 0.3s; }
 
 /* --- ကျုံ့လိုက်ချဲ့လိုက် ဖြည်းဖြည်းချင်း အမြဲဖြစ်နေမည့် Animation --- */
 @keyframes pulse {
     0% { transform: scale(1); }
-    50% { transform: scale(1.03); } /* ၃% ပဲ ချဲ့ပါမယ် (အရမ်းမမြန်၊ အရမ်းမကြီးစေရန်) */
+    50% { transform: scale(1.02); } /* ၂% ပဲ ချဲ့ပါမယ် (အေးအေးလေးနဲ့ လှအောင်) */
     100% { transform: scale(1); }
 }
 .pulse-slow { 
-    animation: pulse 5s ease-in-out infinite; /* ၅ စက္ကန့်ကြာမှ တစ်ခါဖြစ်မည် (အေးအေးလေး) */
+    animation: pulse 5s ease-in-out infinite; /* ၅ စက္ကန့်ကြာမှ တစ်ကြိမ်ဖြစ်မည် (အရမ်းမမြန်ပါ) */
 }
 
-.hero-section { text-align: center; padding: 50px 5%; }
-.hero-card { padding: 30px; max-width: 600px; margin: 0 auto; }
-.text-blue { color: #0ea5e9; }
-.status-badge { color: #22c55e; font-weight: bold; margin-top: 10px; font-size: 0.9rem; }
+/* Hero Section */
+.hero-section { text-align: center; padding: 60px 5%; }
+.hero-card { padding: 40px; max-width: 650px; margin: 0 auto; }
+.text-blue { color: #0ea5e9; font-weight: 800; }
+.status-badge { color: #22c55e; font-weight: bold; margin-top: 15px; font-size: 0.9rem; }
 
-/* ဒေါင်လိုက် Layout */
-.vertical-container { display: flex; flex-direction: column; align-items: center; gap: 40px; padding: 20px 5%; }
+/* Vertical Layout */
+.vertical-container { display: flex; flex-direction: column; align-items: center; gap: 50px; padding: 20px 5%; }
 
 .game-card { 
-    width: 100%; max-width: 650px; padding: 25px; border-radius: 25px; 
+    width: 100%; max-width: 700px; padding: 30px; border-radius: 30px; 
     border: 1px solid white; position: relative; overflow: hidden;
 }
+
+/* နောက်ခံ Hero ပုံများ (Luminosity mode ကိုဖျက်ပြီး အရောင်အတိုင်းထားသည်) */
 .mlbb-bg { background: url('mlbb_hero.jpg') center/cover; background-blend-mode: overlay; background-color: rgba(255,255,255,0.85); }
 .pubg-bg { background: url('pubg_hero.jpg') center/cover; background-blend-mode: overlay; background-color: rgba(255,255,255,0.85); }
 
-.section-tag { background: #0ea5e9; color: white; display: inline-block; padding: 5px 20px; border-radius: 20px; margin-bottom: 15px; font-size: 0.9rem; font-weight: bold; }
+.section-tag { background: #0ea5e9; color: white; display: inline-block; padding: 6px 20px; border-radius: 25px; margin-bottom: 20px; font-size: 0.9rem; font-weight: bold; text-transform: uppercase; }
 
+/* Tables */
 table { width: 100%; border-collapse: collapse; }
-th { text-align: left; padding: 12px; border-bottom: 2px solid #0ea5e9; color: #0369a1; font-size: 0.85rem; }
-td { padding: 12px; border-bottom: 1px solid rgba(0,0,0,0.05); font-weight: bold; font-size: 0.9rem; }
+th { text-align: left; padding: 15px; color: #0369a1; border-bottom: 2px solid #0ea5e9; font-size: 0.8rem; text-transform: uppercase; }
+td { padding: 15px; border-bottom: 1px solid rgba(0,0,0,0.05); font-weight: bold; font-size: 1rem; }
 
-.order-btn { background: #0ea5e9; color: white; text-decoration: none; padding: 6px 15px; border-radius: 15px; font-size: 0.8rem; transition: 0.3s; }
-.order-btn:hover { background: #0369a1; transform: scale(1.1); }
+.order-btn { background: #0ea5e9; color: white; text-decoration: none; padding: 7px 20px; border-radius: 20px; font-size: 0.8rem; transition: 0.3s; font-weight: bold; }
+.order-btn:hover { background: #0369a1; transform: scale(1.1); box-shadow: 0 5px 15px rgba(14, 165, 233, 0.3); }
 
-.payment-section { text-align: center; padding: 40px 5%; }
-.pay-flex { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 20px; }
-.pay-box { display: flex; align-items: center; gap: 15px; padding: 15px; width: 280px; }
-.pay-box img { width: 50px; height: 50px; border-radius: 10px; border: 2px solid white; }
-.center { margin: 0 auto 20px auto; display: table; }
+/* Payment Section */
+.payment-section { text-align: center; padding: 50px 5%; }
+.pay-flex { display: flex; flex-wrap: wrap; gap: 25px; justify-content: center; margin-top: 30px; }
+.pay-box { display: flex; align-items: center; gap: 20px; padding: 20px; width: 300px; }
+.pay-box img { width: 60px; height: 60px; border-radius: 12px; border: 2px solid white; }
+.pay-info { text-align: left; }
+.pay-info strong { display: block; font-size: 1.1rem; color: #0369a1; }
+.pay-info span { font-size: 0.9rem; color: #64748b; }
+.center-tag { margin: 0 auto 30px auto; display: table; }
 
-footer { text-align: center; padding: 40px; color: #94a3b8; font-size: 0.8rem; }
+footer { text-align: center; padding: 60px; color: #94a3b8; font-size: 0.8rem; letter-spacing: 1px; }
+
+/* Mobile Look */
+@media (max-width: 600px) {
+    .hero-card h1 { font-size: 1.8rem; }
+    .game-card { padding: 20px; }
+}
