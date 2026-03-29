@@ -1,108 +1,112 @@
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+/* Black & White Gaming Style */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Arial, sans-serif; }
 
-/* --- Website နောက်ခံ (အမည်းရောင် စစ်စစ်) --- */
 body { 
-    background: #000000; 
-    color: #ffffff;
+    background-color: #000000; 
+    color: #ffffff; 
     overflow-x: hidden;
 }
 
-/* Background အမည်းရောင်ကို နည်းနည်း Glow ဖြစ်အောင် */
-.bg-gradient { 
-    position: fixed; top: 0; width: 100%; height: 100%; 
-    background: radial-gradient(circle at 50% 50%, #1a1a1a, #000000); 
-    z-index: -1; 
+.bg-overlay {
+    position: fixed; top: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at center, #111111 0%, #000000 100%);
+    z-index: -1;
 }
 
-/* --- ဇယားများ (Dark Glass Style) --- */
-.glass { 
-    background: rgba(20, 20, 20, 0.8); 
-    backdrop-filter: blur(15px); 
-    border-radius: 20px; 
-    border: 1px solid rgba(255, 255, 255, 0.1); 
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.05); 
-}
-
+/* Header */
 header { 
-    padding: 15px 5%; 
-    position: sticky; 
-    top: 0; 
-    z-index: 100; 
-    background: rgba(0, 0, 0, 0.9); 
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 20px 5%; 
+    background: rgba(0,0,0,0.9); 
+    position: sticky; top: 0; z-index: 1000;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
 }
-
 nav { display: flex; justify-content: space-between; align-items: center; }
-.logo { font-weight: 900; font-size: 1.6rem; color: #ffffff; letter-spacing: 2px; }
-.logo span { color: #888888; } /* Shop စာသားကို ခဲရောင်ထားသည် */
+.logo { font-weight: 900; font-size: 1.5rem; letter-spacing: 2px; }
+.logo span { color: #888888; }
 
 .btn-v, .btn-t { 
-    padding: 8px 18px; border-radius: 5px; text-decoration: none; 
-    font-size: 0.85rem; font-weight: bold; border: 1px solid #ffffff;
-    color: #ffffff !important; transition: 0.3s;
+    text-decoration: none; padding: 8px 15px; border: 1px solid #ffffff; 
+    color: #ffffff !important; font-size: 0.8rem; font-weight: bold; 
+    margin-left: 10px; transition: 0.3s;
 }
 .btn-v:hover, .btn-t:hover { background: #ffffff; color: #000000 !important; }
 
-/* --- Zoom In Animation --- */
+/* Entry Zoom Animation */
 @keyframes zoomIn {
-    0% { opacity: 0; transform: scale(0.8); }
+    0% { opacity: 0; transform: scale(0.85); }
     100% { opacity: 1; transform: scale(1); }
 }
+.zoom-entry { animation: zoomIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
 
-.hero { text-align: center; padding: 70px 5%; animation: zoomIn 0.8s cubic-bezier(0.17, 0.67, 0.83, 0.67); }
-.hero-card { padding: 40px; width: 100%; max-width: 650px; margin: 0 auto; border: 2px solid #ffffff; }
-.hero h1 { font-size: 2.5rem; letter-spacing: 3px; margin-bottom: 10px; }
-.status { color: #ffffff; background: rgba(255,255,255,0.1); display: inline-block; padding: 5px 15px; border-radius: 5px; font-size: 0.8rem; margin-top: 15px; border: 1px solid #ffffff; }
-
-/* --- ဒေါင်လိုက် Layout --- */
-.vertical-container { display: flex; flex-direction: column; align-items: center; gap: 50px; padding: 40px 5%; }
-
-.game-section { 
-    width: 100%; max-width: 700px; padding: 30px; border-radius: 0px; /* Gaming Style အတွက် အနားသတ်ကို စတုဂံဆန်ဆန်ထားသည် */
-    animation: zoomIn 0.9s ease-out forwards; opacity: 0;
+/* Hero Section */
+.hero { text-align: center; padding: 60px 5%; }
+.hero-card { 
+    max-width: 600px; margin: 0 auto; padding: 40px; 
+    background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.2);
 }
-.vertical-container .game-section:nth-child(1) { animation-delay: 0.2s; }
-.vertical-container .game-section:nth-child(2) { animation-delay: 0.4s; }
+.hero h1 { font-size: 2.2rem; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 4px; }
+.status-badge { 
+    display: inline-block; margin-top: 15px; padding: 5px 15px; 
+    border: 1px solid #ffffff; font-size: 0.7rem; font-weight: bold;
+}
 
-/* Hero BG ပုံများကို Black & White ပြောင်းရန် */
-.mlbb-bg, .pubg-bg { 
+/* Vertical Layout Container */
+.vertical-container { 
+    display: flex; flex-direction: column; align-items: center; 
+    gap: 50px; padding: 20px 5%; 
+}
+
+/* Game Card Style */
+.game-card { 
+    width: 100%; max-width: 700px; padding: 30px; 
     background-size: cover; background-position: center; 
-    background-blend-mode: luminosity; /* ပုံကို အဖြူအမည်း ပြောင်းပေးသည် */
-    background-color: rgba(0, 0, 0, 0.7); 
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-blend-mode: luminosity; background-color: rgba(0,0,0,0.75);
+    border: 1px solid rgba(255,255,255,0.1);
 }
+
 .mlbb-bg { background-image: url('mlbb_hero.jpg'); }
 .pubg-bg { background-image: url('pubg_hero.jpg'); }
 
-.game-section h3 { 
-    color: #000000; background: #ffffff; 
-    display: inline-block; padding: 8px 25px; margin-bottom: 20px; 
-    font-weight: 900; text-transform: uppercase;
+.section-tag { 
+    display: inline-block; background: #ffffff; color: #000000; 
+    padding: 5px 20px; font-weight: 900; text-transform: uppercase; 
+    margin-bottom: 20px; font-size: 0.9rem;
 }
 
+/* Tables */
+.table-wrapper { background: rgba(0,0,0,0.6); backdrop-filter: blur(5px); }
 table { width: 100%; border-collapse: collapse; }
-th { text-align: left; padding: 20px; color: #888888; border-bottom: 2px solid #ffffff; text-transform: uppercase; font-size: 0.8rem; }
-td { padding: 20px; border-bottom: 1px solid rgba(255,255,255,0.1); font-weight: bold; }
+th { text-align: left; padding: 15px; color: #888888; font-size: 0.75rem; border-bottom: 2px solid #ffffff; text-transform: uppercase; }
+td { padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); font-weight: bold; font-size: 0.9rem; }
 
 .order-btn { 
-    background: transparent; color: #ffffff; text-decoration: none; 
-    padding: 8px 25px; border: 1px solid #ffffff; font-size: 0.8rem; 
+    display: inline-block; text-decoration: none; color: #ffffff; 
+    border: 1px solid #ffffff; padding: 5px 15px; font-size: 0.75rem; 
     font-weight: bold; transition: 0.3s;
 }
-.order-btn:hover { background: #ffffff; color: #000000; transform: scale(1.05); }
+.order-btn:hover { background: #ffffff; color: #000000; transform: scale(1.1); }
 
-.payment-section { padding: 60px 5%; text-align: center; animation: zoomIn 1s ease-out forwards; animation-delay: 0.6s; opacity: 0; }
-.pay-flex { display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; margin-top: 30px; }
+/* Payment Section */
+.payment-section { padding: 60px 5%; max-width: 800px; margin: 0 auto; }
+.pay-flex { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 20px; }
 .pay-box { 
-    display: flex; align-items: center; gap: 20px; padding: 25px; width: 320px; 
-    border: 1px solid rgba(255,255,255,0.2); 
+    display: flex; align-items: center; gap: 15px; padding: 20px; 
+    border: 1px solid rgba(255,255,255,0.1); width: 280px; background: rgba(255,255,255,0.02);
 }
-.pay-box img { width: 60px; height: 60px; border-radius: 0px; filter: grayscale(100%); border: 1px solid #ffffff; }
+.pay-box img { width: 60px; height: 60px; filter: grayscale(100%); border: 1px solid #ffffff; }
+.pay-info strong { display: block; font-size: 1rem; margin-bottom: 3px; }
+.pay-info span { font-size: 0.8rem; color: #888888; }
+.center { display: block; text-align: center; margin: 0 auto 30px auto; }
 
-footer { text-align: center; padding: 60px; color: #555555; font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; }
+footer { text-align: center; padding: 60px; color: #444444; font-size: 0.7rem; letter-spacing: 2px; }
 
-/* Responsive */
+/* Mobile Optimization */
 @media (max-width: 600px) {
-    .hero h1 { font-size: 1.8rem; }
-    .game-section { padding: 20px; }
+    .hero h1 { font-size: 1.6rem; }
+    .game-card { padding: 15px; }
+    .nav-links { display: flex; flex-direction: column; gap: 5px; }
+    .btn-v, .btn-t { margin: 0; text-align: center; }
 }
