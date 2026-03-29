@@ -1,119 +1,101 @@
 :root {
-    --primary: #38bdf8;
-    --dark: #020617;
-    --glass: rgba(30, 41, 59, 0.7);
-    --mlbb-color: #f59e0b; /* MLBB theme color */
-    --pubg-color: #10b981; /* PUBG theme color */
+    --primary: #0ea5e9;
+    --bg-light: #f0f9ff;
+    --glass: rgba(255, 255, 255, 0.7);
 }
 
-* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
 
-body { background-color: var(--dark); color: #f8fafc; overflow-x: hidden; }
+body { background-color: var(--bg-light); color: #1e293b; overflow-x: hidden; }
 
+/* နောက်ခံ အပြာနုနဲ့ အဖြူရောင်စပ် */
 .bg-gradient {
     position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-    background: radial-gradient(circle at top right, #1e3a8a, transparent),
-                radial-gradient(circle at bottom left, #0f172a, #020617);
+    background: linear-gradient(135deg, #e0f2fe 0%, #ffffff 100%);
     z-index: -1;
 }
 
 header {
-    background: var(--glass); backdrop-filter: blur(10px);
-    padding: 15px 8%; position: fixed; width: 100%; top: 0; z-index: 1000;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    background: var(--glass); backdrop-filter: blur(15px);
+    padding: 10px 5%; position: sticky; top: 0; z-index: 1000;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
 }
 
 nav { display: flex; justify-content: space-between; align-items: center; }
-.logo { font-size: 22px; font-weight: 800; letter-spacing: 1px; }
+.logo { font-size: 20px; font-weight: 800; color: #0369a1; }
 .logo span { color: var(--primary); }
-.nav-icons i { font-size: 24px; margin-left: 20px; color: var(--primary); }
 
-.hero { height: 45vh; display: flex; align-items: center; justify-content: center; padding-top: 80px; }
-.hero-card { 
-    text-align: center; background: var(--glass); padding: 30px; 
-    border-radius: 20px; border: 1px solid rgba(56, 189, 248, 0.3);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+.contact-btn {
+    text-decoration: none; padding: 8px 15px; border-radius: 20px;
+    font-size: 13px; font-weight: bold; color: white; margin-left: 10px;
+    transition: 0.3s;
 }
-.text-neon { color: var(--primary); text-shadow: 0 0 10px var(--primary); }
-.status-badge { 
-    display: inline-block; margin-top: 15px; padding: 5px 15px; 
-    background: rgba(34, 197, 94, 0.2); color: #4ade80; 
-    border-radius: 20px; font-size: 12px; font-weight: bold;
+.viber { background: #7360f2; }
+.telegram { background: #229ED9; }
+.contact-btn:hover { transform: scale(1.1); box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
+
+/* အမြဲတမ်း ပျော့အိအိ လှုပ်နေစေမည့် Animation */
+@keyframes floating {
+    0% { transform: translateY(0px) rotate(0deg); }
+    33% { transform: translateY(-8px) rotate(1deg); }
+    66% { transform: translateY(4px) rotate(-1deg); }
+    100% { transform: translateY(0px) rotate(0deg); }
+}
+.floating-soft { animation: floating 5s ease-in-out infinite; }
+
+/* ဝင်လာရင် ပေါ်လာမည့် Animation */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-.content-section { padding: 40px 8%; }
-.section-title { margin-bottom: 25px; font-size: 22px; border-left: 4px solid var(--primary); padding-left: 15px; }
+.main-container {
+    display: flex; flex-wrap: wrap; gap: 30px; padding: 40px 5%; justify-content: center;
+    animation: fadeInUp 1s ease-out forwards;
+}
 
-.table-wrapper { overflow-x: auto; background: var(--glass); border-radius: 15px; border: 1px solid rgba(255,255,255,0.05); }
-.modern-table { width: 100%; border-collapse: collapse; min-width: 500px; }
-.modern-table th { background: rgba(56, 189, 248, 0.1); padding: 15px; text-align: left; color: var(--primary); }
-.modern-table td { padding: 15px; border-bottom: 1px solid rgba(255,255,255,0.05); }
-.price { font-weight: bold; color: #4ade80; }
+.hero { padding: 50px 5%; text-align: center; animation: fadeInUp 0.8s ease-out; }
+.hero-card { max-width: 600px; margin: 0 auto; padding: 30px; border-radius: 25px; border: 1px solid white; }
+.glass { background: var(--glass); backdrop-filter: blur(10px); box-shadow: 0 8px 32px rgba(0,0,0,0.05); }
+.text-blue { color: var(--primary); }
+
+.content-section { flex: 1; min-width: 320px; max-width: 550px; }
+.section-title { margin-bottom: 20px; color: #0c4a6e; font-size: 1.3rem; border-left: 6px solid var(--primary); padding-left: 12px; }
+
+.table-wrapper { border-radius: 25px; overflow: hidden; position: relative; border: 1px solid white; }
+
+/* ဇယားနောက်ခံပုံများ */
+.mlbb-bg { 
+    background-image: url('mlbb_hero.jpg'); background-size: cover; background-position: center;
+    background-blend-mode: overlay; background-color: rgba(255,255,255,0.85);
+}
+.pubg-bg { 
+    background-image: url('pubg_hero.jpg'); background-size: cover; background-position: center;
+    background-blend-mode: overlay; background-color: rgba(255,255,255,0.85);
+}
+
+.modern-table { width: 100%; border-collapse: collapse; }
+.modern-table th { background: rgba(14, 165, 233, 0.15); padding: 15px; color: #0369a1; text-align: left; }
+.modern-table td { padding: 15px; border-bottom: 1px solid rgba(0,0,0,0.05); font-weight: bold; }
+.price { color: #0891b2; }
 
 .buy-btn { 
-    background: var(--primary); color: var(--dark); padding: 6px 15px; 
-    text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 13px;
+    background: var(--primary); color: white; padding: 7px 18px; 
+    text-decoration: none; border-radius: 20px; font-size: 13px;
     transition: 0.3s; display: inline-block;
 }
-.buy-btn:hover { transform: scale(1.05); box-shadow: 0 0 15px var(--primary); }
+.buy-btn:hover { background: #0369a1; transform: scale(1.15); }
 
-.payment-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-.pay-card { 
-    background: var(--glass); padding: 25px; border-radius: 20px; text-align: center;
-    border: 1px solid rgba(255,255,255,0.05);
-}
-.qr-code { width: 160px; height: 160px; border-radius: 12px; margin-bottom: 15px; border: 4px solid white; }
-.pay-name { display: block; margin-top: 5px; color: var(--primary); font-size: 14px; }
+.center-section { max-width: 800px; margin: 0 auto; text-align: center; padding: 40px 5%; }
+.payment-grid { display: flex; flex-wrap: wrap; gap: 25px; justify-content: center; margin-top: 20px; }
+.pay-card { padding: 25px; border-radius: 25px; width: 220px; border: 1px solid white; }
+.qr-code { width: 100%; border-radius: 20px; margin-bottom: 15px; border: 4px solid white; transition: 0.3s; }
+.qr-code:hover { transform: scale(1.05); }
 
-footer { text-align: center; padding: 40px; color: #64748b; font-size: 13px; }
+footer { text-align: center; padding: 50px; color: #94a3b8; font-size: 13px; }
 
-/* Background Images for Gaming Sections (Adjust opacity as needed) */
-.mlbb-bg {
-    background-image: url('mlbb_diamond.png'); /* Replace with actual MLBB diamond image */
-    background-size: cover; background-position: center; background-repeat: no-repeat;
-    background-color: var(--glass); /* Keep glass effect */
-    background-blend-mode: overlay; /* Blend glass and image */
-    border: 1px solid rgba(245, 158, 11, 0.3); /* MLBB gold border */
-}
-.pubg-bg {
-    background-image: url('pubg_uc.png'); /* Replace with actual PUBG UC image */
-    background-size: cover; background-position: center; background-repeat: no-repeat;
-    background-color: var(--glass);
-    background-blend-mode: overlay;
-    border: 1px solid rgba(16, 185, 129, 0.3); /* PUBG green border */
-}
-
-/* --- Animation Styles --- */
-
-/* Keyframes */
-@keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-@keyframes fadeInDown {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Animation Classes */
-.animate-fadeInUp {
-    opacity: 0; /* hidden initially */
-    animation: fadeInUp 0.8s ease-out forwards;
-}
-.animate-fadeInDown {
-    opacity: 0; /* hidden initially */
-    animation: fadeInDown 0.8s ease-out forwards;
-}
-
-/* Delays to create a cascading effect */
-.delay-1 { animation-delay: 0.2s; }
-.delay-2 { animation-delay: 0.4s; }
-.delay-3 { animation-delay: 0.6s; }
-.delay-4 { animation-delay: 0.8s; }
-.delay-5 { animation-delay: 1.0s; }
-
-
+/* ဖုန်းအတွက် ပြင်ဆင်ချက် */
 @media (max-width: 600px) {
-    .hero h1 { font-size: 2rem; }
-    .content-section { padding: 30px 5%; }
+    .main-container { padding: 20px 5%; }
+    .hero h1 { font-size: 1.8rem; }
 }
