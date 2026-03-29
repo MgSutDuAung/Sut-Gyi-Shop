@@ -8,7 +8,7 @@ body { background: #f0f9ff; overflow-x: hidden; color: #1e293b; line-height: 1.6
     z-index: -1; 
 }
 
-/* Glass Effect */
+/* Glassmorphism Design */
 .glass { 
     background: rgba(255, 255, 255, 0.7); 
     backdrop-filter: blur(12px); 
@@ -17,60 +17,53 @@ body { background: #f0f9ff; overflow-x: hidden; color: #1e293b; line-height: 1.6
     box-shadow: 0 8px 32px rgba(14, 165, 233, 0.1); 
 }
 
-/* Header ပြင်ဆင်ချက် - စာသားတွေ ထပ်မနေစေရန် */
-header { 
-    padding: 10px 5%; 
-    position: sticky; top: 0; z-index: 1000; 
-    width: 100%;
-}
-.nav-container { 
-    display: flex; justify-content: space-between; align-items: center; 
-    max-width: 1200px; margin: 0 auto; 
-}
-.logo { font-weight: 800; font-size: 1.4rem; color: #0369a1; white-space: nowrap; }
+/* Header & Nav */
+header { padding: 10px 5%; position: sticky; top: 0; z-index: 1000; width: 100%; }
+.nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; }
+.logo { font-weight: 800; font-size: 1.4rem; color: #0369a1; }
 .logo span { color: #38bdf8; }
-
-.nav-links { display: flex; gap: 10px; }
+.nav-links { display: flex; gap: 8px; }
 .btn-v { background: #7360f2; color: white !important; padding: 6px 12px; border-radius: 20px; text-decoration: none; font-size: 0.75rem; font-weight: bold; }
 .btn-t { background: #229ED9; color: white !important; padding: 6px 12px; border-radius: 20px; text-decoration: none; font-size: 0.75rem; font-weight: bold; }
 
-/* Animation */
-@keyframes pulse {
+/* --- Infinite Pulse Animation (3 Seconds) --- */
+@keyframes pulseEffect {
     0% { transform: scale(1); }
-    50% { transform: scale(1.02); }
+    50% { transform: scale(1.03); } /* ၃% ခန့် ကြီးလာမည် */
     100% { transform: scale(1); }
 }
-.pulse-slow { animation: pulse 5s ease-in-out infinite; }
+.pulse-anim { 
+    animation: pulseEffect 3s ease-in-out infinite; /* ၃ စက္ကန့်တွင် တစ်ခါဖြစ်မည် */
+}
 
-.content-wrapper { padding-top: 20px; }
+.content-wrapper { padding-top: 15px; }
 
 /* Hero Section */
 .hero { text-align: center; padding: 40px 5%; }
-.hero-card { padding: 30px; max-width: 600px; margin: 0 auto; }
+.hero-card { padding: 30px; max-width: 600px; margin: 0 auto; border: 1px solid #38bdf8; }
 .text-blue { color: #0ea5e9; font-weight: 800; }
 .status-badge { color: #22c55e; font-weight: bold; margin-top: 10px; font-size: 0.85rem; }
 
-/* Vertical Layout */
+/* Vertical Grid */
 .vertical-container { display: flex; flex-direction: column; align-items: center; gap: 40px; padding: 0 5%; }
 
 .game-card { 
     width: 100%; max-width: 700px; padding: 25px; border-radius: 25px; 
-    border: 1px solid white; position: relative;
+    border: 1px solid white; position: relative; overflow: hidden;
 }
+.mlbb-bg { background: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)), url('mlbb_hero.jpg'); background-size: cover; background-position: center; }
+.pubg-bg { background: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)), url('pubg_hero.jpg'); background-size: cover; background-position: center; }
 
-/* ပုံပေါ်စေရန် - နာမည်မှန်ဖို့ လိုပါသည် */
-.mlbb-bg { background-image: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)), url('mlbb_hero.jpg'); background-size: cover; background-position: center; }
-.pubg-bg { background-image: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)), url('pubg_hero.jpg'); background-size: cover; background-position: center; }
+.section-tag { background: #0ea5e9; color: white; display: inline-block; padding: 6px 15px; border-radius: 20px; margin-bottom: 15px; font-size: 0.85rem; font-weight: bold; text-transform: uppercase; }
 
-.section-tag { background: #0ea5e9; color: white; display: inline-block; padding: 5px 15px; border-radius: 20px; margin-bottom: 15px; font-size: 0.85rem; font-weight: bold; text-transform: uppercase; }
-
-/* Table */
+/* Tables */
 .table-card { overflow-x: auto; }
 table { width: 100%; border-collapse: collapse; min-width: 300px; }
 th { text-align: left; padding: 12px; border-bottom: 2px solid #0ea5e9; color: #0369a1; font-size: 0.8rem; }
 td { padding: 12px; border-bottom: 1px solid rgba(0,0,0,0.05); font-weight: bold; font-size: 0.95rem; }
 
 .order-btn { background: #0ea5e9; color: white; text-decoration: none; padding: 6px 15px; border-radius: 15px; font-size: 0.75rem; font-weight: bold; transition: 0.3s; }
+.order-btn:hover { background: #0369a1; transform: translateY(-2px); }
 
 /* Payment */
 .payment-section { text-align: center; padding: 50px 5%; }
@@ -82,12 +75,11 @@ td { padding: 12px; border-bottom: 1px solid rgba(0,0,0,0.05); font-weight: bold
 .pay-info span { font-size: 0.85rem; color: #64748b; }
 .center-tag { margin: 0 auto 20px auto; display: table; }
 
-footer { text-align: center; padding: 40px; color: #94a3b8; font-size: 0.8rem; }
+footer { text-align: center; padding: 40px; color: #94a3b8; font-size: 0.8rem; border-top: 1px solid rgba(0,0,0,0.05); margin-top: 20px; }
 
-/* Mobile Look Fix */
-@media (max-width: 480px) {
+/* Mobile Adjustments */
+@media (max-width: 600px) {
     .nav-container { flex-direction: column; gap: 10px; }
-    .logo { font-size: 1.2rem; }
-    .btn-v, .btn-t { font-size: 0.7rem; padding: 5px 10px; }
-    .hero-card h1 { font-size: 1.6rem; }
+    .hero-card h1 { font-size: 1.7rem; }
+    .game-card { padding: 15px; }
 }
